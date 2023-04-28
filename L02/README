@@ -1,0 +1,156 @@
+# 02 Prove: Calling Functions
+
+## Purpose
+
+Prove that you can write a Python program that calls functions and methods to get the current date and to append values to a text file.
+
+## Problem Statement
+
+Many companies wish to understand the needs and wants of their customers more deeply so the company can create products that fill those needs and wants. One way to understand customers more deeply is to record the values entered by customers while they are using a program and then to analyze those values. One common way to record values is for a program to store them in a file.
+
+## Assignment
+
+The previous lesson’s prove milestone required you to write a program named tire_volume.py that computes the approximate volume of air inside a tire. Add code near the end of that program that does the following:
+
+- Gets the current date from the computer’s operating system.
+- Opens a text file named volumes.txt for appending.
+- Appends to the end of the volumes.txt file one line of text that contains the following five values:
+  - current date
+  - width of the tire
+  - aspect ratio of the tire
+  - diameter of the wheel
+  - volume of the tire
+
+For all assignments in CSE 111, please write your program in a file named as the assignment states. Also, if an assignment requires your program to read from a file or write to a file, please use the filename stated in the assignment. If you name your program or a data file differently than stated in an assignment, it will be harder for the graders to score your submitted assignment.
+
+This assignment requires you to name your program tire_volume.py and requires your program to write to a file named volumes.txt. Please use those names.
+
+## Helpful Documentation
+
+- The preparation content for this lesson explains how to call a function and a method.
+- The datetime.now() method from the standard Python datetime module will get the current date and time from your computer’s operating system. Here is an excerpt from the official reference for the datetime.now method:
+
+      datetime.now(tz=None)
+      Return the current local date and time.
+      tz is optional, but if it is not None, it must be a tzinfo (time zone information) object
+
+These two Microsoft videos explain how to use methods from the standard datetime module.
+
+- [Date data types](https://learn.microsoft.com/en-gb/shows/intro-to-python-development/python-for-beginners-15-of-44-date-data-types) (8 minutes)
+- [Demonstration: Dates](https://learn.microsoft.com/en-gb/shows/intro-to-python-development/python-for-beginners-16-of-44-demo-dates) (9 minutes)
+
+The following Python code imports the datetime class from the datetime module and calls the datetime.now method to get the current date and time from a computer’s operating system. Then it uses an f-string to format and print the current date.
+
+```python
+# Import the datetime class from the datetime
+# module so that it can be used in this program.
+from datetime import datetime
+
+# Call the now() method to get the current
+# date and time as a datetime object from
+# the computer's operating system.
+current_date_and_time = datetime.now()
+
+# Use an f-string to print only the date
+# part of the current date and time.
+print(f"{current_date_and_time:%Y-%m-%d}")
+```
+
+After the computer executes line 8 in the above code, the variable current_date_and_time will hold the current date and time. Within the f-string at line 12, the string sequences that begin with the percent symbol (%) are called format codes. The format codes and their meaning are listed in the official Python datetime reference. As shown in the terminal window above, the previous example code will print the current date and time to the terminal window with four digits for the year, two digits for the month, and two digits for the day of the month.
+
+The built-in open() function opens a file for reading or writing. Here is an excerpt from the official documentation for the open function:
+
+    open(filename, mode="rt")
+    Open a file and return a corresponding file object.
+    filename is the name of the file to be opened.
+
+    mode is an optional string that specifies the mode in which the file will be opened. It defaults to "rt" which means open for reading in text mode. Other common values are "wt" for writing a text file (truncating the file if it already exists), and "at" for appending to the end of a text file that already exists (and creating and writing to a text file that doesn’t exist).
+
+The built-in print() function prints text to a terminal window or to a text file. Here is an excerpt from the official documentation for the print function:
+
+    print(*objects, sep=" ", end="\n", file=sys.stdout, flush=False)
+    Print objects to the text stream file, separated by sep and followed by end. sep, end, file and flush, if present, must be given as named arguments.
+
+You may want to review the lesson 11 preparation content from CSE 110 which includes several examples for opening and reading from a text file.
+
+The following example code calls the open function at line 6 to open a file named cities.txt for appending text ("at"). The code then calls the print function two times at lines 9 and 10 to print two lines of text to the cities.txt file.
+
+```python
+city_name = "Accra"
+elevation = 61
+population = 4200000
+
+# Open a text file named cities.txt in append mode.
+with open("cities.txt", "at") as cities_file:
+
+    # Print a city's name and information to the file.
+    print(city_name, file=cities_file)
+    print(f"{elevation}, {population}", file=cities_file)
+```
+
+Notice in the previous example at line 6 that the call to the open function is inside a with statement. Opening a file in a with statement, ensures that the computer will automatically close the file when the computer finishes executing the code inside the with block.
+
+The variable cities_file, which is created at line 6, is a reference to the open cities.txt file. At both lines lines 9 and 10, the cities_file is a named argument that causes the print function to print to the cities.txt file insted of printing to the terminal window.
+
+## Help from a Tutor
+
+As a BYU-Idaho campus or online student you can get help from a tutor to complete your CSE 111 assignments. Each tutor is a current BYU-Idaho student employed by BYU-Idaho. Meeting with a tutor is free. It will not cost you any money to meet with a tutor. To get help from a tutor, you simply make an appointment and then meet with the tutor. Campus students meet with tutors in the tutoring center. Online students meet with tutors in Zoom. To make an appointment, follow the instructions in the course tutoring guide.
+
+## Testing Procedure
+
+Verify that your program works correctly by following each step in this testing procedure:
+
+Run your program using the inputs shown below. Ensure that your program’s output matches the output shown below.
+
+```python tire_volume.py
+Enter the width of the tire in mm (ex 205): 185
+Enter the aspect ratio of the tire (ex 60): 50
+Enter the diameter of the wheel in inches (ex 15): 14
+
+The approximate volume is 24.09 liters
+```
+
+Use VS Code to open the volumes.txt file and verify that the last line of text in the file looks like this, except the date will be different:
+
+    2020-03-18, 185, 50, 14, 24.09
+
+Run your program using the inputs shown below. Ensure that your program’s output matches the output shown below.
+
+```python tire_volume.py
+Enter the width of the tire in mm (ex 205): 205
+Enter the aspect ratio of the tire (ex 60): 60
+Enter the diameter of the wheel in inches (ex 15): 15
+
+The approximate volume is 39.92 liters
+```
+
+Use VS Code to open the volumes.txt file and verify that the last two lines of text in the file look like this, except the dates will be different:
+
+    2020-03-18, 185, 50, 14, 24.09
+    2020-04-16, 205, 60, 15, 39.92
+
+## Exceeding the Requirements
+
+If your program fulfills the requirements for this assignment as described in the previous prove milestone and the Assignment section above, your program will earn 93% of the possible points. In order to earn the remaining 7% of points, you will need to add one or more features to your program so that it exceeds the requirements. Here are a few suggestions for additional features that you could add to your program if you wish.
+
+- Find tire prices for four or more tire sizes online. Add a set of if … elif … else statements in your program that use the tire width, tire aspect ratio, and wheel diameter that the user enters to find a price and then print the price.
+- After your program prints the tire volume to the terminal window, your program should ask the user if she wants to buy tires with the dimensions that she entered. If the user answers “yes”, your program should ask for her phone number and store her phone number in the volumes.txt file.
+
+## Ponder
+
+During this assignment, you wrote code that gets the current date from your computer’s operating system and that writes text to a file on your computer’s hard drive. The code that you wrote calls the datetime.now(), open(), and print() functions. Would this assignment have been more difficult if those three functions didn’t exist? Now that you know what functions are and how to call them in your code, are you able to write more complex programs?
+
+## Submission
+
+To submit your program, return to I‑Learn and do these two things:
+
+- Upload your program (the .py file) for feedback.
+- Add a submission comment that specifies the grading category that best describes your program along with a one or two sentence justification for your choice. The grading criteria are:
+  - Some attempt made
+  - Developing but significantly deficient
+  - Slightly deficient
+  - Meets requirements
+  - Exceeds requirements
+
+Last modified 2023-01-16
+Copyright © 2019, Brigham Young University–Idaho. All rights reserved.

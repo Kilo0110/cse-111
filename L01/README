@@ -1,0 +1,81 @@
+# 01 Prove Milestone: Review Python
+
+## Purpose
+
+Prove that you can write a Python program that gets input from a user, performs arithmetic, and displays results for the user to see.
+
+## Problem Statement
+
+The size of a car tire in the United States is represented with three numbers like this: 205/60R15. The first number is the width of the tire in millimeters. The second number is the aspect ratio. The third number is the diameter in inches of the wheel that the tire fits. The volume of space inside a tire can be approximated with this formula:
+
+$$
+v = π * w * w * a(w a + 2,540 d)/
+10,000,000,000
+
+
+$$
+
+- v is the volume in liters,
+- π is the constant PI, which is the ratio of the circumference of a circle divided by its diameter (use math.pi),
+- w is the width of the tire in millimeters,
+- a is the aspect ratio of the tire, and
+- d is the diameter of the wheel in inches.
+  If you’re curious about how the above formula was derived, you can read the tire volume formula derivation.
+
+## Assignment
+
+Write a Python program named tire_volume.py that reads from the keyboard the three numbers for a tire and computes and outputs the volume of space inside that tire.
+
+For all assignments in CSE 111, please write your program in a file named as the assignment states. This assignment requires you to name your program tire_volume.py. If you name your program something else, it will be harder for the graders to score your submitted assignment.
+
+## Helpful Documentation
+
+The preparation content for this lesson explains how to write code to do the following:
+
+- Get input from a user
+- Convert user input from a string to a number
+- Calculate results
+- Display results for the user to see
+
+The Python math module contains mathematical constants and functions, including math.pi, and is described in the Math Module Reference.
+
+The video titled Writing a Small Python Program (10 minutes), shows a BYU-Idaho faculty member solving a problem that is similar to this prove assignment.
+
+## Help from a Tutor
+
+As a BYU-Idaho campus or online student you can get help from a tutor to complete your CSE 111 assignments. Each tutor is a current BYU-Idaho student employed by BYU-Idaho. Meeting with a tutor is free. It will not cost you any money to meet with a tutor. To get help from a tutor, you simply make an appointment and then meet with the tutor. Campus students meet with tutors in the tutoring center. Online students meet with tutors in Zoom. To make an appointment, follow the instructions in the course tutoring guide.
+
+## Testing Procedure
+
+Verify that your program works correctly by following each step in this testing procedure:
+
+Run your program and enter the inputs shown below. Ensure that your program’s output matches the output below.
+
+```python tire_volume.py
+Enter the width of the tire in mm (ex 205): 185
+Enter the aspect ratio of the tire (ex 60): 50
+Enter the diameter of the wheel in inches (ex 15): 14
+
+The approximate volume is 24.09 liters
+
+```
+
+```python tire_volume.py
+Enter the width of the tire in mm (ex 205): 205
+Enter the aspect ratio of the tire (ex 60): 60
+Enter the diameter of the wheel in inches (ex 15): 15
+
+The approximate volume is 39.92 liters
+
+```
+
+## Ponder
+
+During this assignment, you wrote a Python program that gets input from a user, uses variables, performs arithmetic, and displays results for the user to see. Because you should have learned how to write this type of program in CSE 110, this assignment should have been fairly easy for you. If this assignment was difficult for you, you should review the concepts from CSE 110 and the programs that you wrote in that course.
+
+## Submission
+
+On or before the due date, return to I‑Learn and report your progress on this milestone.
+
+Last modified 2023-01-06
+Copyright © 2019, Brigham Young University–Idaho. All rights reserved.
