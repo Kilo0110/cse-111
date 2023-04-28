@@ -44,15 +44,15 @@ def get_noun(quantity):
     """
 
     if quantity == 1:
-        words = ["bird", "boy", "car", "cat", "child",
+        nouns = ["bird", "boy", "car", "cat", "child",
                  "dog", "girl", "man", "rabbit", "woman"]
     else:
-        words = ["birds", "boys", "cars", "cats", "children",
+        nouns = ["birds", "boys", "cars", "cats", "children",
                  "dogs", "girls", "men", "rabbits", "women"]
 
-    # Randomly choose and return a determiner.
-    word = random.choice(words)
-    return word
+    # Randomly choose and return a noun.
+    noun = random.choice(nouns)
+    return noun
 
 
 def get_verb(quantity, tense):
@@ -96,7 +96,7 @@ def get_verb(quantity, tense):
                  "will think", "will run", "will sleep", "will talk",
                  "will walk", "will write"]
 
-    # Randomly choose and return a determiner.
+    # Randomly choose and return a verb.
     verb = random.choice(verbs)
     return verb
 
