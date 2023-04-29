@@ -17,9 +17,9 @@ def get_determiner(quantity):
     Return: a randomly chosen determiner.
     """
     if quantity == 1:
-        determiners = ["A", "One", "The"]
+        determiners = ["a", "one", "the"]
     else:
-        determiners = ["Some", "Many", "The"]
+        determiners = ["some", "many", "the"]
 
     # Randomly choose and return a determiner.
     determiner = random.choice(determiners)
@@ -138,6 +138,7 @@ def get_prepositional_phrase(quantity):
             be single or pluaral.
     Return: a prepositional phrase.
     """
+
     prepositional_phrase = f"{get_preposition()} {get_determiner(quantity)} {get_noun(quantity)}"
 
     return prepositional_phrase
@@ -155,7 +156,7 @@ def make_sentence(quantity, tense):
     prepositional_phrase = get_prepositional_phrase(quantity)
     verb = get_verb(quantity, tense)
 
-    sentence = f"{prepositional_phrase} {verb}"
+    sentence = f"{get_determiner(quantity).capitalize()} {get_noun(quantity)} {get_verb(quantity, tense)} {prepositional_phrase}"
     print(sentence)
 
 
